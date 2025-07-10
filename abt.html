@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="scrool.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="page.css">
     <style>
         * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
+
 
 html, body {
   margin: 0;
@@ -19,23 +25,43 @@ html, body {
 }
 
         .top {
-  background-color: darkcyan;
+  background-color: #02846d;
   color: white;
   text-align: center;
   font-size: 50px;
   line-height: 1.4;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  
   font-weight: bold;
   padding: 210px 20px;
   width: 100%;
 }
 
-       
-        .ex {
+#nav1:hover{
+  color: #00856f;
+}
+
+.ex1 {
+  max-width: 200px;
+  padding: 12px 24px;
+  background-color: #005c4d;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}  
+.ex1:hover{
+background-color: white;
+  color: #005c4d;
+}
+.ex {
   max-width: 200px;
   padding: 12px 24px;
   background-color: white;
-  color: darkcyan;
+  color: #02846d;
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -49,7 +75,7 @@ html, body {
   color: darkcyan;
 }
 .ex:hover {
-  background-color: darkcyan;
+  background-color: #005c4d;
   color: white;
 }
 .ex:hover a {
@@ -61,7 +87,7 @@ html, body {
             margin-left: 50px;
         }
         .headline{
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
             margin-left: 50px;
             font-size: 50px;
         }
@@ -100,7 +126,7 @@ html, body {
         .tr{
             text-align: center;
             font-size: 50px;
-            font-family: 'Times New Roman', Times, serif;
+           
         }
         .button{
             background-color: darkcyan;
@@ -109,7 +135,7 @@ html, body {
             font-size: 50px;
             line-height: 44px;
             max-width: 1500px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
+            
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 200px;
@@ -123,7 +149,7 @@ html, body {
             font-size: 50px;
             line-height: 44px;
             max-width: 1500px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
+            
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 100px;
@@ -138,7 +164,7 @@ html, body {
 
         }
         .out{
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            
             font-weight: 200px;
         }
         .no-underline {
@@ -334,14 +360,44 @@ html, body {
 
 </style>
 </head>
+
 <body>
+      <nav class="navbar" id="navbar">
+ 
+   <img src="logo.png" alt="image" class="pic" > 
+    
+    
+    
+      <ul class="navbar-links">
+        <li class="nav-item">
+          <a class="nav-link " id="nav1"aria-current="page" href="#">why maven</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav1" href="#">Health plans</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" id="nav1" href="#">Resources</a>
+        </li>
+       </ul>
+    
+    <div class="navbar-buttons">
+        <button class="btn-outline">Login</button>
+        <button class="btn-filled">Book a demo</button>
+
+   
+
+
+</nav>
     <div>
-    <div class="top">
+      <section id="green-section">
+    <div class="top" >
         <p>We're on a mission to make healthcare <br> work for all of us</p>
-        <a class="ex" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
+        <a class="ex1" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
         <a class="ex" href="https://www.mavenclinic.com/careers">Work With Us</a>
 
-    </div>
+    </div></section>
         <table>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3ac28eb25cd202f14fd2_6021964993d9cbf4aeeec0ad_mommy-with-kids.webp.png" alt="image"></td>

@@ -4,14 +4,9 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family:'Segoe UI',sans-serif;
-    background: linear-gradient(to right , #004d40 60% , #fff 40%);
-    padding-top: 100px;
-    background-color: cyan;
-}
+
 .navbar{
-    position:fixed;
+    position:absolute;
     top: 30px;
     width: 90%;
     left: 50%;
@@ -26,6 +21,8 @@ body{
     z-index: 1000;
     box-shadow: 0 2px 5px
     rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: position 0.3s ease;
 }
 .navbar-links{
     list-style: none;
@@ -67,6 +64,7 @@ body{
     padding: 8px 16px;
      border-color:#02846d;
     cursor: pointer;
+    border-radius: 4px;
 }
 .btn-filled:hover{
     background: #6de9c3;
@@ -79,4 +77,12 @@ border-color:#6de9c3
 
 .pic{
     margin-left: 10px;
+}
+
+.fixed{
+    position: fixed;
+}
+
+.hidden{
+    position: none;
 }
