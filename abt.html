@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="scrool.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="page.css">
     <style>
         * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  line-height: 30px;
 }
 
-
-
-
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+body{
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: white;
+    font-family: Proxima Nova,sans-serif;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    line-height: 60px;
 }
 
         .top {
-  background-color: #02846d;
+  background-color: darkcyan;
   color: white;
   text-align: center;
   font-size: 50px;
   line-height: 1.4;
-  
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   padding: 210px 20px;
   width: 100%;
 }
 
-#nav1:hover{
-  color: #00856f;
-}
-
-.ex1 {
-  max-width: 200px;
-  padding: 12px 24px;
-  background-color: #005c4d;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-}  
-.ex1:hover{
-background-color: white;
-  color: #005c4d;
-}
-.ex {
+       
+        .ex {
   max-width: 200px;
   padding: 12px 24px;
   background-color: white;
-  color: #02846d;
+  color: darkcyan;
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -75,11 +62,20 @@ background-color: white;
   color: darkcyan;
 }
 .ex:hover {
-  background-color: #005c4d;
+  background-color: darkcyan;
   color: white;
 }
 .ex:hover a {
   color: white;
+}
+.table img{
+    width: 200px;
+    height: 100px;
+    padding: 10px 20px;
+    margin: 0px 30px;
+}
+.table{
+    padding-left: 400px;
 }
 
         .our{
@@ -87,7 +83,7 @@ background-color: white;
             margin-left: 50px;
         }
         .headline{
-            
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin-left: 50px;
             font-size: 50px;
         }
@@ -126,7 +122,7 @@ background-color: white;
         .tr{
             text-align: center;
             font-size: 50px;
-           
+            font-family: 'Times New Roman', Times, serif;
         }
         .button{
             background-color: darkcyan;
@@ -135,7 +131,7 @@ background-color: white;
             font-size: 50px;
             line-height: 44px;
             max-width: 1500px;
-            
+            font-family:Georgia, 'Times New Roman', Times, serif;
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 200px;
@@ -148,8 +144,8 @@ background-color: white;
             text-align:center; 
             font-size: 50px;
             line-height: 44px;
-            max-width: 1500px;
-            
+            max-width: 100%;
+            font-family:Georgia, 'Times New Roman', Times, serif;
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 100px;
@@ -164,7 +160,7 @@ background-color: white;
 
         }
         .out{
-            
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: 200px;
         }
         .no-underline {
@@ -355,49 +351,21 @@ background-color: white;
   img {
     width: 100%;
     height: auto;
+    border-radius: 50px;
   }
 }
 
 </style>
 </head>
-
 <body>
-      <nav class="navbar" id="navbar">
- 
-   <img src="logo.png" alt="image" class="pic" > 
-    
-    
-    
-      <ul class="navbar-links">
-        <li class="nav-item">
-          <a class="nav-link " id="nav1"aria-current="page" href="#">why maven</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" id="nav1" href="#">Health plans</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" id="nav1" href="#">Resources</a>
-        </li>
-       </ul>
-    
-    <div class="navbar-buttons">
-        <button class="btn-outline">Login</button>
-        <button class="btn-filled">Book a demo</button>
-
-   
-
-
-</nav>
-    <div>
-      <section id="green-section">
-    <div class="top" >
+    <div style="padding-top: 30px;">
+    <div class="top">
         <p>We're on a mission to make healthcare <br> work for all of us</p>
-        <a class="ex1" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
+        <a class="ex" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
         <a class="ex" href="https://www.mavenclinic.com/careers">Work With Us</a>
 
-    </div></section>
+    </div>
+    <div style="padding: 0px 50px;">
         <table>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3ac28eb25cd202f14fd2_6021964993d9cbf4aeeec0ad_mommy-with-kids.webp.png" alt="image"></td>
@@ -414,6 +382,7 @@ background-color: white;
             <br>
             <br>
         </table>
+    </div>
         <h1 class="change">The changemakers reimagining healthcare</h1>
         <br>
         <h2 class="change">Maven Senior Leadership Team</h2>
@@ -477,12 +446,12 @@ background-color: white;
 
         <h2 class="dot">OUR investors
         </h2>
+        <div class="table" style="padding-top: 30px;">
         <table>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a594af0564149f98803a_oak.webp" alt=""></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a595517ef66353c77379_sequoia.webp" alt=""></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a5942fe90deef42491ca_digital%20health.webp" alt=""></td>
-
             </tr>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4350742fe93_Frame%2036.webp" alt=""></td>
@@ -496,6 +465,7 @@ background-color: white;
 
             </tr>
         </table>
+        </div>
         <br>
         <table class="colour">
             <tr>
@@ -549,7 +519,7 @@ background-color: white;
 </div>
 
         <div class="join">
-            <p>Join us in changing the health <br>of the world</p>
+            <p style="padding-bottom: 30px;">Join us in changing the health <br><br>of the world</p>
             <button class="ex"><a href="https://www.mavenclinic.com/careers?_gl=1*t2pab9*_up*MQ..*_ga*MTAwNzQwMzU3OC4xNzUyMDQ0NzE3*_ga_C68YN62J6F*czE3NTIwNDQ3MTUkbzEkZzAkdDE3NTIwNDQ3MTUkajYwJGwwJGgw">Explore careers</a></button>
         </div>
       <footer class="bottom-footer">
