@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maven Clinic - The next generation of care</title>
+    <title>Document</title>
     <style>
         * {
   margin: 0;
@@ -11,7 +11,9 @@
   box-sizing: border-box;
   line-height: 30px;
 }
-
+p{
+  color: #666;
+}
 body{
     height: 100%;
     width: 100%;
@@ -41,6 +43,9 @@ h1{
   font-weight: bold;
   padding: 210px 20px;
   width: 100%;
+}
+.top p{
+    line-height: 60px;
 }
 
        
@@ -75,7 +80,7 @@ h1{
     margin: 0px 30px;
 }
 .table{
-    padding-left: 400px;
+    padding-left: 300px;
 }
 
         .our{
@@ -86,6 +91,7 @@ h1{
             font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin-left: 50px;
             font-size: 50px;
+            color: rgb(49, 47, 47);
         }
         .paragraph{
             margin-left: 50px;
@@ -102,8 +108,6 @@ h1{
         .colour{
             background-color: darkcyan;
             color: white;
-            
-            
         }
         .middle{
             text-align: center;
@@ -115,6 +119,9 @@ h1{
   width: 100%;
   max-width: 1200px;
   margin-left: 150px;
+       }
+       .space td{
+        padding: 20px 0px;
        }
         .field{
             width: 50px;
@@ -179,13 +186,17 @@ h1{
   flex: 1;
   min-width: 250px;
   max-width: 300px;
-  height: 100%;
+  max-height: 500px;
   padding: 20px;
   border: 1px solid lightgray;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.5s ease;
+}
+.research-box:hover{
+    box-shadow: #666 3px 3px 5px;
+    border: none;
 }
 
 .no-underline:hover {
@@ -356,7 +367,7 @@ h1{
 }
 
 </style>
-<link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="logo.png" type="image/png">
     <link rel="stylesheet" href="page.css">
 </head>
 <body >
@@ -380,14 +391,14 @@ h1{
         <button class="btn-outline">Login</button>
         <button class="btn-filled">Book a demo</button>
 </nav>
-    <div style="padding-top: 30px;">
+    <div>
     <div class="top">
-        <p>We're on a mission to make healthcare <br> work for all of us</p>
+        <p style="color: #eee;">We're on a mission to make healthcare <br> work for all of us</p>
         <a class="ex" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
         <a class="ex" href="https://www.mavenclinic.com/careers">Work With Us</a>
 
     </div>
-    <div style="padding: 0px 50px;">
+    <div style="padding: 60px 100px;">
         <table>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3ac28eb25cd202f14fd2_6021964993d9cbf4aeeec0ad_mommy-with-kids.webp.png" alt="image"></td>
@@ -405,9 +416,11 @@ h1{
             <br>
         </table>
     </div>
+    <div style="padding: 0px 0px;">
         <h1 class="change">The changemakers reimagining healthcare</h1>
         <br>
         <h2 class="change">Maven Senior Leadership Team</h2>
+    <div style="padding: 40px 20px;">
         <table class="space">
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="img1"> <br><p class="name">Kate Ryder </p>Founder & CEO</td>
@@ -421,17 +434,18 @@ h1{
                 
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/676047efe6f6f1eef28ca1e1_Katie%20Rooney%201.png" alt="img5"><br><p class="name">Katie Rooney</p>Chief Financial Officer</td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6787f08a3a4abe6baa6f256c_maura-ginty.jpg" alt="img6"><br><p class="name">Maura Ginty </p>Chief Marketing Officer</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac392770eeebfcd532ed6_img-stephanie-glenn-121.png" alt="img7"><br><p class="name">Stephanie Glenn </p>Chief Commercial Officer</td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac392770eeebfcd532ed6_img-stephanie-glenn-121.png" alt="img7"><p class="name">Stephanie Glenn </p>Chief Commercial Officer</td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac4155f84cd5f500ce4fe_img-sheila-tran-121.png" alt="img8"><br><p class="name">Sheila Tran </p>Chief Communications Officer</td>
 
             
-            </div>
+    </div>
             </tr>
             
         </table>
         <br>
-        <h2 class="dot">Scientific Advisory Board</h2>
-        <table class="space">
+    </div>
+        <h2 class="dot" style="padding-top: 60px;">Scientific Advisory Board</h2>
+        <table class="space" style="padding: 60px 0px;">
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c2d7e1b287433a53bc0_neel.webp.png" alt="i1"><br><p class="name">Dr. Neel Shah</p> Assistant Professor, Harvard  <br>Medical School <br><p>Founding Director of Delivery <br> Decisions Initiative at Harvard's <br> Ariadne Labs</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3cad5c931ae19ea94def_mary.webp.png" alt="i2"><br><p class="name">Dr. Mary D'Alton </p>Chair of the Department of <br> Obstetrics & Gynecology at <br> Columbia University Irving <br> Medical Center <br><p>Director of Services at the <br> Sloane Hospital for Women at <br> New York-Presbyterian</p></td>
@@ -442,28 +456,30 @@ h1{
         <br>
         <br>
         <h2 class="dot">Maven Board of Directors</h2>
-        <table class="space">
+      <div class="directors" style="padding-left: 150px;">
+        <table class="space" style="padding: 60px 0px;">
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="i6"><br><p class="name">Kate Ryder</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698d4e6a720f5494aa97997_nancy.webp.png" alt="i7"><br><p class="name">Nancy Brown</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58e64cbf414cbea3b6_anu.webp.png" alt="i8"><br><p class="name">Anu Duggal*</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580fd1bb0e96dda496_eric.webp.png" alt="i9"><br><p class="name">Eric Jones*</p></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58e64cbf414cbea3b6_anu.webp.png" alt="i8"><br><p class="name">Anu Duggal</p></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580fd1bb0e96dda496_eric.webp.png" alt="i9"><br><p class="name">Eric Jones</p></td>
 
             </tr>
             <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/670535758a4ccad6ab6cf2bb_Kang_Seyonne.png" alt="i10"><br><p class="name">Seyonne Kang*</p></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/670535758a4ccad6ab6cf2bb_Kang_Seyonne.png" alt="i10"><br><p class="name">Seyonne Kang</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e57a440e585b815f914_chris.webp.png" alt="i11"><br><p class="name">Chris Klomp</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e584cd0a51300b17f9c_jess.webp.png" alt="i12"><br><p class="name">Jess Lee</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e5880ae2c039564ee2f_holly.webp.png" alt="i13"><br><p class="name">Holly Maloney*</p></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e5880ae2c039564ee2f_holly.webp.png" alt="i13"><br><p class="name">Holly Maloney</p></td>
 
             </tr>
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b5_tom.webp.png" alt="i14"><br><p class="name">Tom Mawhinney</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b1_jenny.webp.png" alt="i15"><br><p class="name">Jenny Schneider</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58bba76faceac2b85c_deena.webp.png" alt="i16"><br><p class="name">Deena Shakir*</p></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58bba76faceac2b85c_deena.webp.png" alt="i16"><br><p class="name">Deena Shakir</p></td>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580afe3df01e8d25f8_rachel.webp.png" alt="i17"><br><p class="name">Rachel Winokur</p></td>
             </tr>
         </table>
+      </div>
         <br>
 
         <h2 class="dot">OUR investors
@@ -491,7 +507,7 @@ h1{
         <br>
         <table class="colour">
             <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/66a22d52a50cdcab1b21bfbd_section-3.jpg" alt=""></td>
+                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/66a22d52a50cdcab1b21bfbd_section-3.jpg" alt="" style="padding: 20px 10px 0px 20px;"></td>
                 <td class="margin"><h1>Maven in the Community</h1><br>Through the MPact for Families program, Maven invests in community-based organizations led by Black and Indigenous women working to improve clinical outcomes in their communities. </td>
             </tr>
         </table>
@@ -499,6 +515,7 @@ h1{
         <br>
         <h1 class="middle">An award-winning platform and workplace</h1>
         <p class="middle">Maven is leading the way as one of the world's most innovative companies and workplaces.</p>
+      <div class="awards" style="padding-left: 50px;">
         <table class="space">
             <tr>
                 <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/64c434f9e3ffa0d067dab6ab_TIME_100_most_influential_award.png" alt=""><p> <strong>100 Most Influential Companies,</strong> <br>TIME, 2023</p></td>
@@ -515,6 +532,7 @@ h1{
 
             </tr>
         </table>
+      </div>
         <br>
         <br>
         <h1 class="middle">Transforming healthcare through research and innovation</h1>
@@ -522,26 +540,26 @@ h1{
         <p class="middle">Publishing new studies to fuel Maven product development and advance the field of women's and family health</p>
         <div class="research-container">
   <fieldset class="research-box">
-    <h3><a class="no-underline" href="...">Open access social needs screener</a></h3>
-    <p>A fast and effective three questions screening tool to assess social needs. Published in the American Journal of Obstetrics and Gynecology.</p>
-    <a class="no-underline" href="...">Learn more</a>
+    <h3 style="color: #00856f;">Open access social needs screener</h3>
+    <p style="color: #666;">A fast and effective three questions screening tool to assess social needs. Published in the American Journal of Obstetrics and Gynecology.</p>
+    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
   </fieldset>
 
   <fieldset class="research-box">
-    <h3><a class="no-underline" href="...">Maven's impact on anxiety and depression...</a></h3>
-    <p>How digital tools like Maven can help members manage prenatal anxiety and depression. Published in Fronttiers in the Digital Health</p>
-    <a class="no-underline" href="...">Learn more</a>
+    <h3 style="color: #00856f;">Maven's impact on anxiety and depression...</h3>
+    <p style="color: #666;">How digital tools like Maven can help members manage prenatal anxiety and depression. Published in Fronttiers in the Digital Health</p>
+    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
   </fieldset>
 
   <fieldset class="research-box">
-    <h3><a class="no-underline" href="...">Digital care to reduce C-section rates</a></h3>
-    <p>The opportunity for digital care to increase vaginal birth after cesarean section rates. Published in the Journey of Midwifery and Women's Health</p>
-    <a class="no-underline" href="...">Learn more</a>
+    <h3 style="color: #00856f;">Digital care to reduce C-section rates</h3>
+    <p style="color: #666;">The opportunity for digital care to increase vaginal birth after cesarean section rates. Published in the Journey of Midwifery and Women's Health</p>
+    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
   </fieldset>
 </div>
 
         <div class="join">
-            <p style="padding-bottom: 30px;">Join us in changing the health <br><br>of the world</p>
+            <p style="padding-bottom: 30px; color: #eee;">Join us in changing the health <br><br>of the world</p>
             <button class="ex"><a href="https://www.mavenclinic.com/careers?_gl=1*t2pab9*_up*MQ..*_ga*MTAwNzQwMzU3OC4xNzUyMDQ0NzE3*_ga_C68YN62J6F*czE3NTIwNDQ3MTUkbzEkZzAkdDE3NTIwNDQ3MTUkajYwJGwwJGgw">Explore careers</a></button>
         </div>
       <footer class="bottom-footer">
