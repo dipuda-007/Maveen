@@ -17,6 +17,7 @@ body{
 .part1{
     background: url(image1.png) no-repeat center center/cover;
     color: white;
+    height: 95vh;
 }
 .hero{
     padding-top: 200px;
