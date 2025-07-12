@@ -3,648 +3,666 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Maven Clinic - The next generation of care</title>
     <style>
         * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 30px;
-}
-p{
-  color: #666;
-}
-body{
-    height: 100%;
-    width: 100%;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: white;
-    font-family: Proxima Nova,sans-serif;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-h1{
-    line-height: 60px;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Apply border-box globally */
+            line-height: 30px;
+        }
+        p {
+            color: #666;
+        }
+        body {
+            /* Use flexbox to stack content vertically and center it */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers flex items horizontally */
+            min-height: 100vh;
+            background: white;
+            font-family: 'Proxima Nova', sans-serif;
+            text-align: left; /* Default text alignment */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        h1 {
+            line-height: 60px;
+        }
+
+        /* --- NEW: Main Content Wrapper --- */
+        .main-content-wrapper {
+            width: 100%;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 0 auto; /* Center the wrapper */
+            padding: 0 0px; /* Add horizontal padding for smaller screens */
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
 
         .top {
-  background-color: darkcyan;
-  color: white;
-  text-align: center;
-  font-size: 50px;
-  line-height: 1.4;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: bold;
-  padding: 210px 20px;
-  width: 100%;
-}
-.top p{
-    line-height: 60px;
-}
-
-       
-        .ex {
-  max-width: 200px;
-  padding: 12px 24px;
-  background-color: white;
-  color: darkcyan;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-}
-.ex a {
-  text-decoration: none;
-  color: darkcyan;
-}
-.ex:hover {
-  background-color: darkcyan;
-  color: white;
-}
-.ex:hover a {
-  color: white;
-}
-.table img{
-    width: 200px;
-    height: 100px;
-    padding: 10px 20px;
-    margin: 0px 30px;
-}
-.table{
-    padding-left: 300px;
-}
-
-        .our{
-            color: darkcyan;
-            margin-left: 50px;
-        }
-        .headline{
-            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            margin-left: 50px;
+            background-color: darkcyan;
+            color: white;
+            text-align: center;
             font-size: 50px;
-            color: rgb(49, 47, 47);
+            line-height: 1.4;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            padding: 210px 0px;
+            width: 100%; /* Ensure it takes full width of its parent */
         }
-        .paragraph{
-            margin-left: 50px;
+        .top p {
+            line-height: 60px;
         }
-        .change{
-            text-align: center;
+
+        .ex {
+            max-width: 200px;
+            padding: 12px 24px;
+            background-color: white;
+            color: darkcyan;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
         }
-        .name{
+        .ex a {
+            text-decoration: none;
             color: darkcyan;
         }
-        .dot{
-            text-align: center;
-        }
-        .colour{
+        .ex:hover {
             background-color: darkcyan;
             color: white;
         }
-        .middle{
+        .ex:hover a {
+            color: white;
+        }
+
+        /* Adjust table image styling */
+        .table img {
+            width: 100%; /* Make images responsive within their cell */
+            max-width: 200px; /* Keep a max width if desired */
+            height: auto;
+            padding: 10px 20px;
+            margin: 0px 30px;
+        }
+        .table {
+            /* Remove fixed padding-left */
+            padding-left: 0;
+            width: 100%; /* Ensure table takes full width */
+        }
+
+        .our {
+            color: darkcyan;
+            /* Remove fixed margin-left */
+            margin-left: 20;
+        }
+        .headline {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            /* Remove fixed margin-left */
+            margin-left: 0;
+            font-size: 50px;
+            color: rgb(49, 47, 47);
+        }
+        .paragraph {
+            /* Remove fixed margin-left */
+            margin-left: 0;
+        }
+        .change {
             text-align: center;
         }
-        .margin{
+        .name {
+            color: darkcyan;
+        }
+        .dot {
             text-align: center;
         }
-       .space {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: 150px;
-       }
-       .space td{
-        padding: 20px 0px;
-       }
-        .field{
+        .colour {
+            background-color: darkcyan;
+            color: white;
+            width: 100%; /* Ensure it takes full width */
+        }
+        .middle {
+            text-align: center;
+        }
+        .margin {
+            text-align: center;
+        }
+        .space {
+            width: 100%; /* Take full width of its parent */
+            max-width: 1200px; /* Keep max-width if you want to limit it */
+            /* Remove margin-left and use auto margins for centering the table if needed */
+            margin: 0 auto;
+        }
+        .space td {
+            padding: 20px 0px;
+            text-align: center; /* Center content within table cells */
+        }
+        .field {
             width: 50px;
         }
-        .tr{
+        .tr {
             text-align: center;
             font-size: 50px;
             font-family: 'Times New Roman', Times, serif;
         }
-        .button{
+        .button {
             background-color: darkcyan;
             color: white;
-            text-align:center; 
+            text-align: center;
             font-size: 50px;
             line-height: 44px;
-            max-width: 1500px;
-            font-family:Georgia, 'Times New Roman', Times, serif;
+            width: 100%; /* Use width 100% */
+            /* Remove max-width if it's causing overflow, let padding handle space */
+            font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 200px;
             padding-bottom: 150px;
-
         }
-        .join{
+        .join {
             background-color: darkcyan;
             color: white;
-            text-align:center; 
+            text-align: center;
             font-size: 50px;
             line-height: 44px;
-            max-width: 100%;
-            font-family:Georgia, 'Times New Roman', Times, serif;
+            width: 100%; /* Ensure it takes full width */
+            font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: bold;
             box-sizing: border-box;
             padding-top: 100px;
-            padding-bottom:50px;
-            
+            padding-bottom: 50px;
         }
-        .end{
-            width: 1000px;
+        .end {
+            /* Remove fixed width, let it be responsive */
+            width: 100%;
         }
-        .footer{
+        .footer {
             text-align: end;
-
         }
-        .out{
+        .out {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: 200px;
         }
         .no-underline {
-  text-decoration: none;
-  color: inherit; /* optional: keeps the default text color */
-}
-.research-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
+            text-decoration: none;
+            color: inherit;
+        }
+        .research-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            flex-wrap: wrap;
+            width: 100%; /* Ensure it takes full width of its parent */
+        }
 
-.research-box {
-  flex: 1;
-  min-width: 250px;
-  max-width: 300px;
-  max-height: 500px;
-  padding: 20px;
-  border: 1px solid lightgray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.5s ease;
-}
-.research-box:hover{
-    box-shadow: #666 3px 3px 5px;
-    border: none;
-}
+        .research-box {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            max-height: 500px;
+            padding: 20px;
+            border: 1px solid lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.5s ease;
+        }
+        .research-box:hover {
+            box-shadow: #666 3px 3px 5px;
+            border: none;
+        }
 
-.no-underline:hover {
-  text-decoration: underline; /* optional: adds underline on hover */
-}
-.app-links {
-  display: flex;
-  gap: 12px;
-  margin-top: 10px;
-  justify-content: center;
-}
-.app-links img {
-  height: 45px;
-  width: auto;
-}
+        .no-underline:hover {
+            text-decoration: underline;
+        }
+        .app-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        .app-links img {
+            height: 45px;
+            width: auto;
+        }
 
-.social-icons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  justify-content: center;
-}
-.social-icons img {
-  width: 30px;
-  height: 30px;
-}
-
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
 
         .bottom-footer {
-  background-color: #fff;
-  padding: 60px 40px 20px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #1a3c34;
-  border-top: 1px solid #eee;
-}
-.footer-main {
-  max-width: 1200px;
-  margin: auto;
-}
-.footer-columns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: space-between;
-}
-.footer-col h4 {
-  font-size: 16px;
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.footer-col ul li {
-  margin-bottom: 8px;
-}
-.footer-col ul li a {
-  color: #1a3c34;
-  font-size: 14px;
-  text-decoration: none;
-}
-.footer-col ul li a:hover {
-  text-decoration: underline;
-}
-.social-icons a img{
-  height: fit-content;
-  width: 30px;
-  margin-right: 10px;
-  margin-bottom: 5px;
-}
-.app-links img {height: fit-content;
-  width: 30px;
-  margin-right: 10px;
+            background-color: #fff;
+            padding: 60px 40px 20px;
+            font-family: 'Segoe UI', sans-serif;
+            color: #1a3c34;
+            border-top: 1px solid #eee;
+            width: 100%; /* Footer should be full width */
+        }
+        .footer-main {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col ul li a {
+            color: #1a3c34;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .footer-col ul li a:hover {
+            text-decoration: underline;
+        }
+        .social-icons a img {
+            height: fit-content;
+            width: 30px;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+        .app-links img {
+            height: fit-content;
+            width: 30px;
+            margin-right: 10px;
+        }
+        .newsletter h4 {
+            font-size: 14px;
+            margin: 20px 0 5px;
+        }
+        .newsletter form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .newsletter input {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .newsletter button {
+            background-color: #00856f;
+            color: white;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .newsletter button:hover {
+            background-color: #00a893;
+        }
+        .tag {
+            background-color: #e6f2ed;
+            color: #00695c;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-weight: bold;
+        }
+        .tag.new {
+            background-color: #e1f4e8;
+            color: #228858;
+        }
+        .footer-bottom-bar {
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+        .social-icons img,
+        .app-buttons img {
+            width: 28px;
+            margin: 8px 8px 8px 0;
+        }
+        .footer-links a {
+            color: #007c6d;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media screen and (max-width: 768px) {
+            .space {
+                flex-direction: column;
+                width: 100%;
+                padding: 20px;
+                /* Reset margin-left for smaller screens */
+                margin-left: 0;
+            }
 
-}
-.newsletter h4 {
-  font-size: 14px;
-  margin: 20px 0 5px;
-}
-.newsletter form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.newsletter input {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.newsletter button {
-  background-color: #00856f;
-  color: white;
-  border: none;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.newsletter button:hover {
-  background-color: #00a893;
-}
-.tag {
-  background-color: #e6f2ed;
-  color: #00695c;
-  font-size: 10px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-left: 6px;
-  font-weight: bold;
-}
-.tag.new {
-  background-color: #e1f4e8;
-  color: #228858;
-}
-.footer-bottom-bar {
-  border-top: 1px solid #ddd;
-  margin-top: 40px;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  display: flex;justify-content: space-between;
-}
-.social-icons img,
-.app-buttons img {
-  width: 28px;
-  margin: 8px 8px 8px 0;
-}
-.footer-links a {
-  color: #007c6d;
-  margin: 0 10px;
-  text-decoration: none;
-  font-size: 15px;
-}
-.footer-links a:hover {
-  text-decoration: underline;
-}
-@media screen and (max-width: 768px) {
-  .space {
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-  }
+            .top {
+                padding-top: 100px;
+                padding-bottom: 100px;
+                font-size: 30px;
+            }
 
-  .top {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    font-size: 30px;
-  }
+            .footer-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
 
-  .footer-columns {
-    flex-direction: column;
-    gap: 20px;
-  }
+            table {
+                width: 100%; /* Ensure tables are responsive */
+            }
 
-  table{
-    width: 100%;
-  }
+            /* Be more specific with image styling for responsiveness */
+            .space img, .table img, .awards img, .colour img {
+                width: 100%;
+                height: auto;
+                max-width: none; /* Allow images to fill their container */
+                border-radius: 50px; /* If applicable */
+            }
 
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 50px;
-  }
-}
-
-</style>
-  <link rel="icon" href="logo.png" type="image/png">
+            /* Adjust padding on sections that had fixed left padding */
+            div[style*="padding: 60px 100px;"] {
+                padding: 30px 20px; /* Adjust for smaller screens */
+            }
+            .directors, .awards {
+                padding-left: 0 !important; /* Override inline styles */
+                padding: 20px; /* Add some general padding */
+            }
+        }
+    </style>
+    <link rel="icon" href="logo.png" type="image/png">
     <link rel="stylesheet" href="page.css">
 </head>
-<body >
-        <nav class="navbar" >
-        <img src="image2.png" alt="image" class="pic" > 
+<body>
+    <nav class="navbar">
+        <a href="index.html">
+            <img src="image2.png" alt="image" class="pic">
+        </a>
         <ul class="navbar-links">
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="abt.html">Why maven</a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="HealthPlans.html">Health plans</a>
-        </li>
-       
-        <li class="nav-item">
-          <a class="nav-link" href="#">Resources</a>
-        </li>
-       </ul>
-    
-    <div class="navbar-buttons">
-        <button class="btn-outline">Login</button>
-        <button class="btn-filled">Book a demo</button>
-</nav>
-    <div>
-    <div class="top">
-        <p style="color: #eee;">We're on a mission to make healthcare <br> work for all of us</p>
-        <a class="ex" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
-        <a class="ex" href="https://www.mavenclinic.com/careers">Work With Us</a>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="abt.html">Why maven</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="HealthPlans.html">Health plans</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Resources</a>
+            </li>
+        </ul>
+        <div class="navbar-buttons">
+            <button class="btn-outline">Login</button>
+            <button class="btn-filled">Book a demo</button>
+        </div>
+    </nav>
 
-    </div>
-    <div style="padding: 60px 100px;">
-        <table>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3ac28eb25cd202f14fd2_6021964993d9cbf4aeeec0ad_mommy-with-kids.webp.png" alt="image"></td>
-                <td>
-                    <h2 class="our">OUR STORY</h2>
-                    <h1 class="headline">Relentlessly focused on <br> closing gaps in care for <br> women and families</h1>
-                    <p class="paragraph">After witnessing and experiencing the lack of support that exists for so many as they build and raise their families, Kate Ryder founded Maven in 2014, envisioning a new kind of care—one that puts women and families at the center. </p>
-                    <p class="paragraph">The Maven team is built of clinical leaders, engineers, designers, and operators who collaborate to deliver localized support to members in 175 countries.</p>
-                    <p class="paragraph">Maven partners with more than 2,000 employers and health plans to deliver personalized care and intuitive benefit management to members around the world. As individuals continue to face barriers to care, including limited access to providers, rising costs, systemic inequities, and legal and regulatory limitations, we show up when our members need us most.</p>
-                    <p class="paragraph">To every member. Through every journey</p>
-                    <p class="paragraph">We're with you.</p>
-                </td>
-            </tr>
+    <div class="main-content-wrapper">
+        <div class="top">
+            <p style="color: #eee;">We're on a mission to make healthcare <br> work for all of us</p>
+            <a class="ex" href="https://www.mavenclinic.com/solutions">Explore Our Solutions</a>
+            <a class="ex" href="https://www.mavenclinic.com/careers">Work With Us</a>
+        </div>
+
+        <div style="padding: 60px 0px;">
+            <table>
+                <tr>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3ac28eb25cd202f14fd2_6021964993d9cbf4aeeec0ad_mommy-with-kids.webp.png" style="width: 600px;" alt="image"></td>
+                    <td>
+                        <h2 class="our">OUR STORY</h2>
+                        <h1 class="headline">Relentlessly focused on <br> closing gaps in care for <br> women and families</h1>
+                        <p class="paragraph">After witnessing and experiencing the lack of support that exists for so many as they build and raise their families, Kate Ryder founded Maven in 2014, envisioning a new kind of care—one that puts women and families at the center. </p>
+                        <p class="paragraph">The Maven team is built of clinical leaders, engineers, designers, and operators who collaborate to deliver localized support to members in 175 countries.</p>
+                        <p class="paragraph">Maven partners with more than 2,000 employers and health plans to deliver personalized care and intuitive benefit management to members around the world. As individuals continue to face barriers to care, including limited access to providers, rising costs, systemic inequities, and legal and regulatory limitations, we show up when our members need us most.</p>
+                        <p class="paragraph">To every member. Through every journey</p>
+                        <p class="paragraph">We're with you.</p>
+                    </td>
+                </tr>
+                <br>
+                <br>
+            </table>
+        </div>
+
+        <div style="padding: 0px;">
+            <h1 class="change">The changemakers reimagining healthcare</h1>
+            <br>
+            <h2 class="change">Maven Senior Leadership Team</h2>
+            <div style="padding: 40px 0px;">
+                <table class="space">
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="img1"> <br><p class="name">Kate Ryder </p>Founder & CEO</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c2d7e1b287433a53bc0_neel.webp.png" alt="img2"><br><p class="name">Dr. Neel Shah </p>Chief Medical Officer</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c111d6813d84618a513_jason.webp.png" alt="img3"><p class="name"><br>Jason Lee</p>Chief Product & <br>Operating Officer</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7db5a8d22986e284c9e_mark.webp.png" alt="img4"><br><p class="name">Mark Humphrey </p>SVP Engineering</td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/676047efe6f6f1eef28ca1e1_Katie%20Rooney%201.png" alt="img5"><br><p class="name">Katie Rooney</p>Chief Financial Officer</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6787f08a3a4abe6baa6f256c_maura-ginty.jpg" alt="img6"><br><p class="name">Maura Ginty </p>Chief Marketing Officer</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac392770eeebfcd532ed6_img-stephanie-glenn-121.png" alt="img7"><p class="name">Stephanie Glenn </p>Chief Commercial Officer</td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac4155f84cd5f500ce4fe_img-sheila-tran-121.png" alt="img8"><br><p class="name">Sheila Tran </p>Chief Communications Officer</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+            <h2 class="dot" style="padding-top: 60px;">Scientific Advisory Board</h2>
+            <table class="space" style="padding: 60px 0px;">
+                <tr>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c2d7e1b287433a53bc0_neel.webp.png" alt="i1"><br><p class="name">Dr. Neel Shah</p> Assistant Professor, Harvard <br>Medical School <br><p>Founding Director of Delivery <br> Decisions Initiative at Harvard's <br> Ariadne Labs</p></td>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3cad5c931ae19ea94def_mary.webp.png" alt="i2"><br><p class="name">Dr. Mary D'Alton </p>Chair of the Department of <br> Obstetrics & Gynecology at <br> Columbia University Irving <br> Medical Center <br><p>Director of Services at the <br> Sloane Hospital for Women at <br> New York-Presbyterian</p></td>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698ac83105cd71cc671d8a9_lara.webp.png" alt="i3"><br><p class="name">Dr. Laura Riley</p> <br>Obstetrician and Gynecologist- <br>in-Chief at NewYork- <br>Presbyterian/Weill Cornell <br> Medical Center <br><p>Chair of the Department of <br>Obstetrics and Gynecology at <br> Weill Cornell Medicine</p></td>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/60219c3036b7ec50ee2dd279_brian.webp" alt="i4"><br> <p class="name">Dr. Brian Levine </p><br>Founding Partner and Practice <br> Director of CCRM New York <br><p>Board-Certified in Reproductive <br>Endocrinology and Infertility <br>and Obstetrics and Gynecology</p></td>
+                </tr>
+            </table>
             <br>
             <br>
-        </table>
-    </div>
-    <div style="padding: 0px 0px;">
-        <h1 class="change">The changemakers reimagining healthcare</h1>
-        <br>
-        <h2 class="change">Maven Senior Leadership Team</h2>
-    <div style="padding: 40px 20px;">
-        <table class="space">
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="img1"> <br><p class="name">Kate Ryder </p>Founder & CEO</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c2d7e1b287433a53bc0_neel.webp.png" alt="img2"><br><p class="name">Dr. Neel Shah </p>Chief Medical Officer</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c111d6813d84618a513_jason.webp.png" alt="img3"><p class="name"><br>Jason Lee</p>Chief Product & <br>Operating Officer</td> 
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7db5a8d22986e284c9e_mark.webp.png" alt="img4"><br><p class="name">Mark Humphrey </p>SVP Engineering</td>
+            <h2 class="dot">Maven Board of Directors</h2>
+            <div class="directors" style="padding-left: 0;">
+                <table class="space" style="padding: 60px 0px;">
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="i6"><br><p class="name">Kate Ryder</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698d4e6a720f5494aa97997_nancy.webp.png" alt="i7"><br><p class="name">Nancy Brown</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58e64cbf414cbea3b6_anu.webp.png" alt="i8"><br><p class="name">Anu Duggal</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580fd1bb0e96dda496_eric.webp.png" alt="i9"><br><p class="name">Eric Jones</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/670535758a4ccad6ab6cf2bb_Kang_Seyonne.png" alt="i10"><br><p class="name">Seyonne Kang</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e57a440e585b815f914_chris.webp.png" alt="i11"><br><p class="name">Chris Klomp</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e584cd0a51300b17f9c_jess.webp.png" alt="i12"><br><p class="name">Jess Lee</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e5880ae2c039564ee2f_holly.webp.png" alt="i13"><br><p class="name">Holly Maloney</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b5_tom.webp.png" alt="i14"><br><p class="name">Tom Mawhinney</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b1_jenny.webp.png" alt="i15"><br><p class="name">Jenny Schneider</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58bba76faceac2b85c_deena.webp.png" alt="i16"><br><p class="name">Deena Shakir</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580afe3df01e8d25f8_rachel.webp.png" alt="i17"><br><p class="name">Rachel Winokur</p></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
 
-            </tr>
-            
-            <tr>
-                
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/676047efe6f6f1eef28ca1e1_Katie%20Rooney%201.png" alt="img5"><br><p class="name">Katie Rooney</p>Chief Financial Officer</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6787f08a3a4abe6baa6f256c_maura-ginty.jpg" alt="img6"><br><p class="name">Maura Ginty </p>Chief Marketing Officer</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac392770eeebfcd532ed6_img-stephanie-glenn-121.png" alt="img7"><p class="name">Stephanie Glenn </p>Chief Commercial Officer</td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/685ac4155f84cd5f500ce4fe_img-sheila-tran-121.png" alt="img8"><br><p class="name">Sheila Tran </p>Chief Communications Officer</td>
+            <h2 class="dot">OUR investors</h2>
+            <div class="table" style="padding-top: 30px;">
+                <table>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a594af0564149f98803a_oak.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a595517ef66353c77379_sequoia.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a5942fe90deef42491ca_digital%20health.webp" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4350742fe93_Frame%2036.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f42ba542fe94_Frame%2037.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4d99242fe91_Frame%2029.webp" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4041542fe92_Frame%2028.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4618642fe90_Frame%2027.webp" alt=""></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6705381cf4afcb8ef691f770_Stepstone_logo.png" alt=""></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <table class="colour">
+                <tr>
+                    <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/66a22d52a50cdcab1b21bfbd_section-3.jpg" alt="" style="padding: 20px 10px 0px 20px;"></td>
+                    <td class="margin"><h1>Maven in the Community</h1><br>Through the MPact for Families program, Maven invests in community-based organizations led by Black and Indigenous women working to improve clinical outcomes in their communities. </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <h1 class="middle">An award-winning platform and workplace</h1>
+            <p class="middle">Maven is leading the way as one of the world's most innovative companies and workplaces.</p>
+            <div class="awards" style="padding-left: 0;">
+                <table class="space">
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/64c434f9e3ffa0d067dab6ab_TIME_100_most_influential_award.png" alt=""><p> <strong>100 Most Influential Companies,</strong> <br>TIME, 2023</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/648cc44e563ce38de4f43602_2023_CNBC_Disruptor.png" alt=""><p><strong>CNBC Disruptor 50,</strong> <br>CNBC, 2023</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31ee71249e3c912d076_FastCompany_MostInnovative-2023.png" alt=""><p><strong>Most Innovative Companies,</strong> <br>Fast Company, 2023</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31e4cb8056bc121f874_BestInBusiness_2022.png" alt=""><p> <strong>Best in Business 2022,</strong> <br>Inc.</p></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d3f2b23dafbee8a19a89_BPW_SmallB_NY_2022.png" alt=""><p><strong>Best Small & Medium Workplaces <br> in New York, </strong>Fortune, 2022</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31ef94166b661a49cf4_GPW_2022-23.png" alt=""><p><strong>Great Place to Work,</strong><br>Certified, 2022</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/61169cdd53df133c48837eb4_Crains-Notable%20In%20Health%20Care%202021.webp" alt=""><p><strong>Notable in Health Care,</strong><br>Crains, 2021</p></td>
+                        <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6023d57e077a08126a8f2fba_fulltime.webp" alt=""><p><strong>Forty Under Forty,</strong><br>Fortune, 2021</p></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+            <br>
+            <h1 class="middle">Transforming healthcare through research and innovation</h1>
+            <br>
+            <p class="middle">Publishing new studies to fuel Maven product development and advance the field of women's and family health</p>
+            <div class="research-container">
+                <fieldset class="research-box">
+                    <h3 style="color: #00856f;">Open access social needs screener</h3>
+                    <p style="color: #666;">A fast and effective three questions screening tool to assess social needs. Published in the American Journal of Obstetrics and Gynecology.</p>
+                    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
+                </fieldset>
 
-            
-    </div>
-            </tr>
-            
-        </table>
-        <br>
-    </div>
-        <h2 class="dot" style="padding-top: 60px;">Scientific Advisory Board</h2>
-        <table class="space" style="padding: 60px 0px;">
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3c2d7e1b287433a53bc0_neel.webp.png" alt="i1"><br><p class="name">Dr. Neel Shah</p> Assistant Professor, Harvard  <br>Medical School <br><p>Founding Director of Delivery <br> Decisions Initiative at Harvard's <br> Ariadne Labs</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3cad5c931ae19ea94def_mary.webp.png" alt="i2"><br><p class="name">Dr. Mary D'Alton </p>Chair of the Department of <br> Obstetrics & Gynecology at <br> Columbia University Irving <br> Medical Center <br><p>Director of Services at the <br> Sloane Hospital for Women at <br> New York-Presbyterian</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698ac83105cd71cc671d8a9_lara.webp.png" alt="i3"><br><p class="name">Dr. Laura Riley</p> <br>Obstetrician and Gynecologist- <br>in-Chief at NewYork- <br>Presbyterian/Weill Cornell <br> Medical Center <br><p>Chair of the Department of <br>Obstetrics and Gynecology at <br> Weill Cornell Medicine</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/60219c3036b7ec50ee2dd279_brian.webp" alt="i4"><br> <p class="name">Dr. Brian Levine </p><br>Founding Partner and Practice <br> Director of CCRM New York <br><p>Board-Certified in Reproductive  <br>Endocrinology and Infertility  <br>and Obstetrics and Gynecology</p></td>
-            </tr>
-        </table>
-        <br>
-        <br>
-        <h2 class="dot">Maven Board of Directors</h2>
-      <div class="directors" style="padding-left: 150px;">
-        <table class="space" style="padding: 60px 0px;">
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698a7bce572745c91313e50_kate.webp.png" alt="i6"><br><p class="name">Kate Ryder</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6698d4e6a720f5494aa97997_nancy.webp.png" alt="i7"><br><p class="name">Nancy Brown</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58e64cbf414cbea3b6_anu.webp.png" alt="i8"><br><p class="name">Anu Duggal</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580fd1bb0e96dda496_eric.webp.png" alt="i9"><br><p class="name">Eric Jones</p></td>
+                <fieldset class="research-box">
+                    <h3 style="color: #00856f;">Maven's impact on anxiety and depression...</h3>
+                    <p style="color: #666;">How digital tools like Maven can help members manage prenatal anxiety and depression. Published in Fronttiers in the Digital Health</p>
+                    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
+                </fieldset>
 
-            </tr>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/670535758a4ccad6ab6cf2bb_Kang_Seyonne.png" alt="i10"><br><p class="name">Seyonne Kang</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e57a440e585b815f914_chris.webp.png" alt="i11"><br><p class="name">Chris Klomp</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e584cd0a51300b17f9c_jess.webp.png" alt="i12"><br><p class="name">Jess Lee</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e5880ae2c039564ee2f_holly.webp.png" alt="i13"><br><p class="name">Holly Maloney</p></td>
+                <fieldset class="research-box">
+                    <h3 style="color: #00856f;">Digital care to reduce C-section rates</h3>
+                    <p style="color: #666;">The opportunity for digital care to increase vaginal birth after cesarean section rates. Published in the Journey of Midwifery and Women's Health</p>
+                    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
+                </fieldset>
+            </div>
 
-            </tr>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b5_tom.webp.png" alt="i14"><br><p class="name">Tom Mawhinney</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58a4744845ef7345b1_jenny.webp.png" alt="i15"><br><p class="name">Jenny Schneider</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e58bba76faceac2b85c_deena.webp.png" alt="i16"><br><p class="name">Deena Shakir</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/669a3e580afe3df01e8d25f8_rachel.webp.png" alt="i17"><br><p class="name">Rachel Winokur</p></td>
-            </tr>
-        </table>
-      </div>
-        <br>
-
-        <h2 class="dot">OUR investors
-        </h2>
-        <div class="table" style="padding-top: 30px;">
-        <table>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a594af0564149f98803a_oak.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a595517ef66353c77379_sequoia.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6021a5942fe90deef42491ca_digital%20health.webp" alt=""></td>
-            </tr>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4350742fe93_Frame%2036.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f42ba542fe94_Frame%2037.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4d99242fe91_Frame%2029.webp" alt=""></td>
-            </tr>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4041542fe92_Frame%2028.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/636e9ca91d81f4618642fe90_Frame%2027.webp" alt=""></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6705381cf4afcb8ef691f770_Stepstone_logo.png" alt=""></td>
-
-            </tr>
-        </table>
+            <div class="join">
+                <p style="padding-bottom: 30px; color: #eee;">Join us in changing the health <br><br>of the world</p>
+                <button class="ex"><a href="https://www.mavenclinic.com/careers?_gl=1*t2pab9*_up*MQ..*_ga*MTAwNzQwMzU3OC4xNzUyMDQ0NzE3*_ga_C68YN62J6F*czE3NTIwNDQ3MTUkbzEkZzAkdDE3NTIwNDQ3MTUkbDQwJGgw">Explore careers</a></button>
+            </div>
         </div>
-        <br>
-        <table class="colour">
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/66a22d52a50cdcab1b21bfbd_section-3.jpg" alt="" style="padding: 20px 10px 0px 20px;"></td>
-                <td class="margin"><h1>Maven in the Community</h1><br>Through the MPact for Families program, Maven invests in community-based organizations led by Black and Indigenous women working to improve clinical outcomes in their communities. </td>
-            </tr>
-        </table>
-        <br>
-        <br>
-        <h1 class="middle">An award-winning platform and workplace</h1>
-        <p class="middle">Maven is leading the way as one of the world's most innovative companies and workplaces.</p>
-      <div class="awards" style="padding-left: 50px;">
-        <table class="space">
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/64c434f9e3ffa0d067dab6ab_TIME_100_most_influential_award.png" alt=""><p> <strong>100 Most Influential Companies,</strong> <br>TIME, 2023</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/648cc44e563ce38de4f43602_2023_CNBC_Disruptor.png" alt=""><p><strong>CNBC Disruptor 50,</strong> <br>CNBC, 2023</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31ee71249e3c912d076_FastCompany_MostInnovative-2023.png" alt=""><p><strong>Most Innovative Companies,</strong> <br>Fast Company, 2023</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31e4cb8056bc121f874_BestInBusiness_2022.png" alt=""><p> <strong>Best in Business 2022,</strong> <br>Inc.</p></td>
+    </div> <footer class="bottom-footer">
+        <div class="footer-main">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Join Maven</h4>
+                    <ul>
+                        <li><a href="#">Employers</a></li>
+                        <li><a href="#">Health Plans</a></li>
+                        <li><a href="#">Consultants</a></li>
+                        <li><a href="#">Individuals</a></li>
+                        <li><a href="#">Become a Maven Provider</a></li>
+                    </ul>
+                </div>
 
-            </tr>
-            <tr>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d3f2b23dafbee8a19a89_BPW_SmallB_NY_2022.png" alt=""><p><strong>Best Small & Medium Workplaces <br> in New York, </strong>Fortune, 2022</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6400d31ef94166b661a49cf4_GPW_2022-23.png" alt=""><p><strong>Great Place to Work,</strong><br>Certified, 2022</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/61169cdd53df133c48837eb4_Crains-Notable%20In%20Health%20Care%202021.webp" alt=""><p><strong>Notable in Health Care,</strong><br>Crains, 2021</p></td>
-                <td><img src="https://cdn.prod.website-files.com/5fb2b678e994739660d95086/6023d57e077a08126a8f2fba_fulltime.webp" alt=""><p><strong>Forty Under Forty,</strong><br>Fortune, 2021</p></td>
+                <div class="footer-col">
+                    <h4>Maven Programs</h4>
+                    <ul>
+                        <li><a href="#">Fertility & Family Building</a></li>
+                        <li><a href="#">Maternity & Newborn Care</a></li>
+                        <li><a href="#">Maven Milk</a></li>
+                        <li><a href="#">Parenting & Pediatrics</a></li>
+                        <li><a href="#">Menopause</a></li>
+                        <li><a href="#">Maven Wallet</a></li>
+                        <li><a href="#">Maven Managed Benefit</a></li>
+                    </ul>
+                </div>
 
-            </tr>
-        </table>
-      </div>
-        <br>
-        <br>
-        <h1 class="middle">Transforming healthcare through research and innovation</h1>
-        <br>
-        <p class="middle">Publishing new studies to fuel Maven product development and advance the field of women's and family health</p>
-        <div class="research-container">
-  <fieldset class="research-box">
-    <h3 style="color: #00856f;">Open access social needs screener</h3>
-    <p style="color: #666;">A fast and effective three questions screening tool to assess social needs. Published in the American Journal of Obstetrics and Gynecology.</p>
-    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
-  </fieldset>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Careers <span class="tag">We're hiring!</span></a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Book a demo</a></li>
+                    </ul>
+                </div>
 
-  <fieldset class="research-box">
-    <h3 style="color: #00856f;">Maven's impact on anxiety and depression...</h3>
-    <p style="color: #666;">How digital tools like Maven can help members manage prenatal anxiety and depression. Published in Fronttiers in the Digital Health</p>
-    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
-  </fieldset>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Maven Member Journey <span class="tag new">NEW</span></a></li>
+                        <li><a href="#">Resource Center</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Client Stories</a></li>
+                        <li><a href="#">Share your Maven moment</a></li>
+                    </ul>
+                </div>
 
-  <fieldset class="research-box">
-    <h3 style="color: #00856f;">Digital care to reduce C-section rates</h3>
-    <p style="color: #666;">The opportunity for digital care to increase vaginal birth after cesarean section rates. Published in the Journey of Midwifery and Women's Health</p>
-    <a class="no-underline" href="..." style="color: #00a893">Learn more</a>
-  </fieldset>
-</div>
-
-        <div class="join">
-            <p style="padding-bottom: 30px; color: #eee;">Join us in changing the health <br><br>of the world</p>
-            <button class="ex"><a href="https://www.mavenclinic.com/careers?_gl=1*t2pab9*_up*MQ..*_ga*MTAwNzQwMzU3OC4xNzUyMDQ0NzE3*_ga_C68YN62J6F*czE3NTIwNDQ3MTUkbzEkZzAkdDE3NTIwNDQ3MTUkajYwJGwwJGgw">Explore careers</a></button>
+                <div class="footer-col social-col">
+                    <h4>Find us on</h4>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/company/mavenclinic"><img src="linkedin.png" style="height: 28px; width: 35px;" alt="LinkedIn" /></a>
+                        <a href="https://www.facebook.com/mavenclinic"><img src="facebook.png" style="height: 30px;" alt="Facebook" /></a>
+                        <a href="https://twitter.com/mavenclinic"><img src="twitter.png" alt="Twitter" /></a>
+                    </div>
+                    <div class="app-links">
+                        <img src="appstore.png" style="height: 28px; width: 55px;" alt="App Store" />
+                        <img src="googleplay.png" style="height: 28px; width: 52px;" alt="Google Play" />
+                    </div>
+                    <div class="newsletter">
+                        <h4>Join our newsletter</h4>
+                        <form>
+                            <input type="email" placeholder="Enter your email*" required />
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      <footer class="bottom-footer">
-  <div class="footer-main">
-    <div class="footer-columns">
-      <div class="footer-col">
-        <h4>Join Maven</h4>
-        <ul>
-          <li><a href="#">Employers</a></li>
-          <li><a href="#">Health Plans</a></li>
-          <li><a href="#">Consultants</a></li>
-          <li><a href="#">Individuals</a></li>
-          <li><a href="#">Become a Maven Provider</a></li>
-        </ul>
-      </div>
 
-      <div class="footer-col">
-        <h4>Maven Programs</h4>
-        <ul>
-          <li><a href="#">Fertility & Family Building</a></li>
-          <li><a href="#">Maternity & Newborn Care</a></li>
-          <li><a href="#">Maven Milk</a></li>
-          <li><a href="#">Parenting & Pediatrics</a></li>
-          <li><a href="#">Menopause</a></li>
-          <li><a href="#">Maven Wallet</a></li>
-          <li><a href="#">Maven Managed Benefit</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Careers <span class="tag">We're hiring!</span></a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Solutions</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Book a demo</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Maven Member Journey <span class="tag new">NEW</span></a></li>
-          <li><a href="#">Resource Center</a></li>
-          <li><a href="#">Webinars</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Client Stories</a></li>
-          <li><a href="#">Share your Maven moment</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col social-col">
-        <h4>Find us on</h4>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/company/mavenclinic"><img src="linkedin.png" style="height: 28px; width: 35px;"alt="LinkedIn" /></a>
-          <a href="https://www.facebook.com/mavenclinic"><img src="facebook.png" style="height: 30px;" alt="Facebook" /></a>
-          <a href="https://twitter.com/mavenclinic"><img src="twitter.png" alt="Twitter" /></a>
+        <div class="footer-bottom-bar">
+            <p>© 2025 Maven Clinic Co. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+                <a href="#">Security</a>
+                <a href="#">Cookie Declaration</a>
+                <a href="#">Notice of Privacy Practices</a>
+            </div>
         </div>
-        <div class="app-links">
-          <img src="appstore.png" style="height: 28px; width: 55px;" alt="App Store" />
-          <img src="googleplay.png" style="height: 28px; width: 52px;"alt="Google Play" />
-        </div>
-        <div class="newsletter">
-          <h4>Join our newsletter</h4>
-          <form>
-            <input type="email" placeholder="Enter your email*" required />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom-bar">
-    <p>© 2025 Maven Clinic Co. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Terms</a>
-      <a href="#">Privacy</a>
-      <a href="#">Security</a>
-      <a href="#">Cookie Declaration</a>
-      <a href="#">Notice of Privacy Practices</a>
-    </div>
-  </div>
-</footer>
+    </footer>
 </body>
 </html>
