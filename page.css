@@ -3,10 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
 .navbar{
-    position:absolute;
+    position:fixed;
     top: 30px;
     width: 90%;
     left: 50%;
@@ -68,17 +66,15 @@
 }
 .btn-filled:hover{
     background: #6de9c3;
-    color: #2d3071;
-border-color:#6de9c3
+    color:#000;
+    border-color:#6de9c3
 }
 .navbar-links:hover{
     color: #00856f;
 }
-
-.pic{
-    margin-left: 10px;
+.logo img {
+  height: 40px;
 }
-
 .fixed{
     position: fixed;
 }

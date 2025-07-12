@@ -1,35 +1,5 @@
-
-.hero-btn {
-  display: inline-block;
-  background: #fff;
-  color: #00856f;
-  border: 2px solid #00856f;
-  text-decoration: none;
-  border-radius: 5px;
-  padding: 8px 22px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.hero-btn:hover {
-  background: #00856f;
-  color: #fff;
-}
-.hero-btn1 {
-  display: inline-block;
-  background: #00856f;
-  color: #fff;
-  text-decoration: none;
-  border: 2px solid #00856f;
-  border-radius: 5px;
-  padding: 8px 22px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.hero-btn1:hover {
-  background: #4ed9c9;
-  color: #000;
+body {
+  font-family: Domaine Display,Times New Roman,sans-serif;
 }
 .hero-container {
   display: flex;
