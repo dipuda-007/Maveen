@@ -1,0 +1,732 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maven Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #2d2d2d;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #2d2d2d;
+      font-weight: 500;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .cta-buttons button {
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #00725c;
+      background-color: #fff;
+      color: #00725c;
+    }
+
+    .cta-buttons button:last-child {
+      background-color: #00725c;
+      color: white;
+    }
+
+    .main {
+      display: flex;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .featured {
+      background-color: #00725c;
+      color: white;
+      padding: 40px;
+      border-radius: 8px;
+      flex: 2;
+      position: relative;
+    }
+
+    .featured h3 {
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .featured h1 {
+      margin-top: 10px;
+      font-size: 32px;
+      line-height: 1.4;
+    }
+
+    .featured p {
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .featured a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+    }
+
+    .articles {
+      flex: 1.5;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .article {
+      display: flex;
+      gap: 15px;
+    }
+
+    .article img {
+      width: 100px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .article-content h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .tag {
+      margin-top: 8px;
+      display: inline-block;
+      padding: 4px 10px;
+      background-color: #e0f2eb;
+      color: #00725c;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .subscribe-section {
+      background-color: #fff;
+      margin: 40px auto;
+      max-width: 1100px;
+      padding: 40px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .socials {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      font-size: 24px;
+      color: #00725c;
+      text-decoration: none;
+    }
+
+    .subscribe-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 50%;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .subscribe-form button {
+      align-self: flex-end;
+      padding: 10px 16px;
+      background-color: #00725c;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .card-grid {
+      max-width: 1200px;
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card .tag {
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #555;
+    }
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://via.placeholder.com/30x30" alt="Logo">
+      <strong>MAVEN</strong>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Why Maven</a></li>
+        <li><a href="#">Employers</a></li>
+        <li><a href="#">Health Plans</a></li>
+        <li><a href="#">Consultants</a></li>
+        <li><a href="#">Individuals</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </nav>
+    <div class="cta-buttons">
+      <button>Login</button>
+      <button>Book a demo</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="featured">
+      <h3>TOP READS</h3>
+      <h1>Maven: A ten-year roadmap in women’s and family health</h1>
+      <p>Maven notches a decade of category leadership in women's and family health innovation, while charting the next decade to come.</p>
+      <a href="#">Read the article →</a>
+    </section>
+
+    <section class="articles">
+      <div class="article">
+        <img src="https://www.aksharimaging.com/blog/wp-content/uploads/2024/06/Employee-Wellness-Program-Guide.webp" alt="Article 1">
+        <div class="article-content">
+          <h4>Reimagining workplace wellness: Goldman Sachs & Maven on building best-in-class reproductive health benefits</h4>
+          <span class="tag">Insights</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <img src="https://images.squarespace-cdn.com/content/v1/5ec69d5bcd774a440cd7f4c8/2abab9af-8748-4942-bbef-ce51af3246e5/christina-wocintechchat-com-c6wbSBaYxkY-unsplash.jpg" alt="Article 2">
+        <div class="article-content">
+          <h4>“Millenopause”: How HR leaders can support millennials navigating menopause</h4>
+          <span class="tag">Insights</span>
+        </div>
+      </div>
+
+      <div class="article">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAADaCAMAAACbxf7sAAAAzFBMVEX///8DjXT//v8AinADjnP8//9ft6b///0Ah2wAi3QAjXEAg2kml4P2/v0AinJSo5IQj3oAgmvU5uZYqJkAhWUwoosAg2enz8fg7+6+3tnj9fTM5eQAgWaOwbcAh2oAg22y2dTw/v1/urCaycF5t6xVp5TW7uvi9vSl1Ms8mohdqJwfk3txtqjJ6ONIoIyYyL5rrKRBl4uw1tO+5N1ps6CIvLQxkH2s0tB5uKksmojt9fiMyL1VpZh9vK5bq5ac0ceIz8oqkYWPw792v7B/LmHSAAAcZElEQVR4nO1dC3ejuJIWDw0IjAxjD4kdjI3j4PiZnk53+pHO9N7Z//+ftkr4CRL4Abtnz3HdntsdB6v4pFKpqiRVkVG7PZ98ffn8cJ8QJLr5rx6y4I9liXb7ae9uMF521n/99de63QGeo1W65UmJVRtPXSc6FUxp/7539/J1Mv/VSckPA8l23aE/+3S3SkidOKEtaIwmvX/nb8x1bdswuCANeQYB92fLuwevXp6U6tBa0nucz5gRBMCT8XhJfnDN1PCPxpjhRrw9eK0TKElexzM3cjkDDiay0QQr/An+Ap62yzqPaZ0sAeTXmRvaHNtHXkwz/iB/acdk2LGx7Hkocfo1zHQU2WQ0t12DaxUEPNl4heJ7VR/rILGE9EedwDWMw/ZNGVAkHi4mKbkOKcy7h6XWNTRWBXPDM26996+BmXFdfWGRUWicSYGamu8zO5p99q5h6T23QkOIzSlkMuDpRp3eVTB/vviRlKcc6IYMd/GSgP7SzxxXHVVBf8CzaXkeGW5r5CHPcyGijr2fAE95u2VA4S2ZzV4uGtVkbMSZwjmPUHmEb88XcLTIdBLbmkp+SkcU5UmLh3cA9YwOhke9d9fItN0FSOFVw7fzBbj/EQ1L5kkFUEHurEesU+UXFefozT1VASneynE7fdTAJ/G0dN2id76tKYfzJKC40IVLYHuS4eJZpN8O+CVjecRTM+IBhQXqpL61yJ9rt4LnCSOK08a2n09b4HT66DqXCW2eZzxbnWgVeoPI8Ct4niK6+JjWXXqVgwqr7s+n+DqIBzyd+CUzICt4prMTeJ4IFLor1lZVPWuRnmH4Vw7mnnwtfOpXDapFniN4shrAiUBhTLn7uwIoHQTXgjvmaRp+Ve8mS9esbmkD9JQZBfPOjCZU2b9gZHqfwuuUrYxr8E2tHMCsSP6OT2K5sXVPepaZprtOlCuqlbRis2ac8H5m9FEivSvTObElHNEflb7Fji1/m6qQpgu1WXI5MVMLP1GiWMR7dtF6V726/Qf5PWRBFLrgngq7hJVJsuHLkMInqV/GU7ToozfmhpE7RB5BFEXghmsMNUkpT3cumzFgT49QJSikCBo0TRP+3zHsMIqCIYPFyvOS6erzv/MWd7uGVj4uhibzkK10WLJgAwwT+Ll8thyMVtPEE5Skq2/jzsJ1hR9X9mW7LdUNd2HJ2sk2Lj2fzR97qz7wtERUR3yTTl/HC9culWRmcsmYprzcSDDcaDZ+PXY2M55eOvpiAM8S4w2QdmjR3B6FZR4g2FY8eBu89reqDD0qwVLXM4Nr+jgD63gbXJG0wEF6jxQhJfdM8aImNsS4276b7rFh6MLaGh8igpWO30IYdVNzpDxhguWlF+Q2UkAUPE07WgueGz6WVHWnE841UzWwzHhLjoem/2YohhPeHjy9r9XxIK/XsblpKvqWMXdypHvBNAmUImSaTuwPUkJJubWBfZC8GKFiRIGM9ZGPmswcFVPQmYvfSXVIBnnef3dtVd8yHr4cj4VaxZvc9Z+TCpBIOsGQqPeooQUpbYy5n3ayAI/OY+lihl+N/buqfs1IRHWTSegoeJqa+3nrtQHLvi8bBSZEKG59o/jMaa4P8E3GoJakI2Vqwfv+7d9dqcQJpTdIzglLWyT91VVpNf4m9IkA6q25bFWBj3zDPjMkgsKUzhQONEjkLgSwCkzZm4G0Re0+sU5zY7c8wWmHOS3lGT/s/fDvtmpahZ3783gKvoS+uPL+BXNb+BWUJCpDwQme6Yne+pbE88kykvWuPcnWFwzcioWlABW+ZBij82FmC9dKhSNuoytIyVymnB3NjGcXhd6R57NrFCcDS3b6bBrLegJN8dn9JTyRoIM7XdniBsrhBfX3N7nDYoaTiyPuMFPfCp50eBDh+MuR+59g/l9KOGR0HMpsB6aFqUWncq3MwkfxXpfE+VE2k7Z77L/zFt2sUFR/6UrC0/An/IZhsouxQgfLWgZy1pR0ZIINqmp03R6gRZfhIUvWfd0NaCpz7nFVuS7EL9SvPFjBwrteIJFq5kS9K/c6geckPNCCxhqEY9NkW2ZtMsc4NZKmJl3Yz8XWmbZoSXiaDPr2ql04ItaR7/vQAQtXu2kwkmkik8e17DrCmJ4akQZzNRrVwZPQpb3VvTCgm9GinibR8o5mVwbuTiKwSBTzVMI0vKuHp0XbW54gItsZ+i4ZUJNHvZr2y2HOLE+L1/L465lWgoLA3k7eMhsaVK7QprhFZ0p8UBP6trYteovOjNJ4BxI8wDt1cSToojjI033GXQexlfhejG2CWz6pkSc4DOCjVgHVuJ9Ut3U6z5GwBpm3GTA9sQsrOvTt2rtS9x0SdGkvqpylLFptXYx6eC5dkNzJ5miOBQMqkaKwf42ZIKPlsCImbg7Hl1lDSkpazAk2Kwc4ELIVdPhcM0/gqo45ZOQsrjrzIKPXrtHa/XAnCRMZT3WzBMn5XLblAJ3gXmsR5Um3yDx63/5EZzwXfgCeQb/u8UTNu1b4DZsBbTfAcxqk27XjoTBDwVIY1M2R4CRZhWqYzOymdWsFFKM7ugX6UYidmQ5P6ueJ9EW97+Aby/oHFNfOzWlIi0qWt/jxxHMO51KqCkhC7wb1nubLEbUeJOK0qHHZPqaOEqlTp01UIIuCO1PQ+jCgzZAuUQhbCh8aYirIIt7CKAAdNjagFv0h3ZMBQ6yl3g2vhdKi5Drfa17OdgTNPkpll3G7KSnaci4wNs2gMSGyiNUfyo2GoC/fsKqNc7vAls/q8QgV9CQNb7J1cxyRdM8vbPAMX6q/dwXdSWW3YcklZDUsTBe30fXMupcBNZtlCnRXCP6xWZNzBU1r6SZh/VbRMU3yQE1WZ2ChSDr5kESPjC+NMgVaF0b06oh1FX2WALWrTs9dTcX94ajfsBBNJe5vt564qoJgDfGKGxFGw7NFp5LND/v6axwlBED/LPSu0WkWKGi6H0Wgvtek/Qdt9wrzxR7XerGsyJSCU5oP8BrrhtzCjKDt/OrNNLvGqLWMwOgaF04ZGPMmWaIYDey8LnJX110oqyJLmNd5oJOm58syF9owNffPZr0lPDiS3xcwGwlRHZBsuvB+w6JLyGthA6RhS1fXSacAlDWq6IUyWhVH9K4pDzgjnbQLQP2fTeo/Qa+5cApjCLRBpNB0HijDFa3ZSaoC2iDD/zOg+TWNuVeeQqmg/xugOhnl1jQBtFnfkMxyywvDOdosSx3W0RzQ+neX8iT2l455Nq11gd6LQB8aBpq0tDxQ3nRMQyfjopWSNiq6lPwsRuTsPxtfXn4VdpqCpGGe90XX0B41yxK6t7hHOvQa7t1VcSfEfmnYvraSgg/MWrUfIzjmKYuxGsumbd2HPFCT/WqSI9JEsi/balYBWuQu7+ybxrhJjkj5ZRQpShq2jL7kjx2iTd8oWYksaN7sPiUh3lvhfGVNZyvVVPCXBNeGneC0sAli8qaNlGIgBanBfS3cGRwYBaat6m9eTqha19JdkLhfb4apA9Lhf7PC3gAo+kZJn8pOtIvTqw0q3nRYOMwajhrjRoQUvXDp4Ty+PvX+2dkE9s+4MEU1d/q/7Lpsh7RJE9vTCrs9fNboMQ1KVqrD383pXXC6wwJQ42vDPlo+pntATdkMFl0X9Xy02hwbbsbetWS7d9tJ860Jjkj5uJjIeJcduraawIlNfpTkPWjVfkB4w3VdXETt8WY1q++M+RHJ7xZmxML6j1+LU8KyY/Xx5hi9bj00EFDBLS31gGrcb8ATphbq+aJZtBlISgbrBrTS1C7LKqG5gyZWmEe3ePUl3nouOvHdUf08f6kyHwigTAumNTMEwe3LUpoEOw2fRsxP6t0QtsioNIsPXpjvYOrMGnnCiP0jmS0HByw/OF5RqfPkN9WT6nxX3Zp3CSzy3C1eINeCdNudicZNFtZ59gcm31zqnx2SqYW1HsOxwJovaiLTmWfbaKB3n22TmZwn+rl39VUMKd7mrEwFxTRFbpxLyWvJLGt7Ey6HGZyFdXib1rOwof2Ruidd5Qwuv8ReIB2ESOIp7U7GWeQ1O/HuhzWd0MM7lIvTkpz64CfWJL2wRsYFhctMM9rmPbDI3DCzpMvh71o0r255a3lm3oKmMDV3Vc9qCq6v9GZPvJeZdG95B7XsIVLFhQzOJCpRq+sqyqNkNWOmw/Ze0nIf1fFr2BWBRWopUbhMc9bSVHU+S6+TXop5Qsid9OaoiRkeNmOXHvSE6Q+vunKduUJLV5rJh3v/yFYcxnhKrlG+opc+5A6h8WuDBrp/fghUJPzA1F4X8oQveoqLRKB2psVYjugB+/UqT5HquSQXB0y3VqZOVnl5igeXZHfetZes5TidDoD5rbgJCJb2hZ6ijiv/dB3I78e6v7f9Z5F83MHR3C+nJMOS8YRvrXxcs4vdy4dTTOLTLjrF4oPo48IJQ8EMeB0qcqwZc7rrv2dJHw//g9nfz+aMYvBbwZOJVBaUTGV6FykQmaLORwtW2EekwsmT3eSXXb3WGA9+k/PPX1okmXflLLV4uemKUVeesZMZ/ugi+/NhERuKzgtXlrUdUWmUDuzecH3m6obdMrJtLoMBK8tMnH62KCVf5X0B7lO3c9Y+kIXpH/tLFUzmh7/3Cg5sBfljphEPEnKqjS9S6qXtriI3oMj7suGp0zZX3ME2bfZ4RqURTF33PrTleReBut93Cg7m8RdbztXUnJjdVWeU3vDUyXTpGoo0slzr7s8yUZIU9y63TJ347TOp5LkNzvbfbVtTJbXU4g61tlwBMG2XJLm1/Sx9na5ivvs0/RLgDVHFgIb7c5WY2qivqMNhigSIbyOvVOfTLCMjXX2xS0JvzJjl7qcmbyWFMXjMxmnWuCxxtwc8MR3d61NcEr9l7jj34q/DkszXLF4MsmShUp5iMGn6vnDLAlKa8ZZz6XXSB31X8pbDaP2CWFW2krf6rg0Npm7Cd5fHX9Y9/VWlnAU5dtS+65Nc8rxtE17/efk2LJFZgdP/mVurQI5TUzkcmLyZGfZw9vEqO6bo3T9/8QNxSl/NFFMJ55YqPPGufD5Lruvy2fvqiKeX/Ex73752WnGZ+IgWAKdUf6fcqXKS7diezQefV9NEFH3y+sBz3H7rVvAE49LuSK/VfFMnZN0Qt7vGbPkv8vSA6XsEhJmhK3NhM0w5K9t8tfTUr8p2BOuGKP0UiTzUEfyFBZokuQ5z5AdLKuWJY1qVod40gaUdRkEQ9Uhrq0lU+W33QGNMay6baZT0WxUJxtmGBWamxk4BZqZKyR6+ajih0nx/oGZew4qx2QAy0VL7g7SU6+UxganeKdm9StanpYw/k8J3NUuS+pydlMDdxPTtpwI1wflSW69gGU+6J9Q6OIt8ze6V8pz+3T2td88AarjPZTkjUcM8qgoFXUrcL/WBwNTzliWJag7oJKA4pUy7lVYXsFiJrPx1SLCodxZ9qUxEjFFux6zM+3YqUDBNPqqNVlAPyRe3nvoDDBeHZ7AwK9xLivmOh9U8TxRd18dqRZW9iz3xPDy17EH5i/FolhKrMi0wPuF9RMWgw/lATbCSP844K/CzE6hCACejNDXOz7nvlqoCPucA1cL1WQdGLfLaOk1BqMkIv1SWtDkieueUL27VQOPFqNq9OwIKjtsdLzt5UEU8XK/OC62hA/0RlpbtUAMVZrb79nxZgbgBE1DP0sCZ7uTx7LJd1unEHmZW0DlAkakRte48cInOZkmpLooXGOX1TSQ8QQete/RSnvdL21V0rnpEue0+9cT2wAWRaPSyiTdaR+WlRvJkuO4yFX7f+WF+fVMboiUvApoHiv8y0TMKWoMazlWnY99FX1OUmVHBM7N6Otwe/n13ZW4tEauYM1tEDtihIs4DZSLbVLgY/1nThqPXmxihXUwXdtjZmsmNOGy91LP3h8VdO26YW1lzQA3DDfwOFkq5sprshkQNGZoO2n5gq7wMwwmCt3kW96jjTIvwXb3eeD0M9iWbMu/FYOCcxm5g+LPJ830j5wi9h9/LGUx7UQ15Q7Ztu0Hst8ejaSPHCH/23jtvLAiAJzB1l2TU6XyavD+OHqaNYNxTkj6MXsaT+VMbCHgOHnsP/UYwHvLs3Q0my85T+2hi6PVIbJFoIbq1JeuifaFTee6tDqo3nVtKEE4+BRxJXan6eN7oRje60Y1udKMb3ehGN7rRjW50oxvd6EY3utGNbnSjG93oRje60Y1udKP/f1RxZMLK/a1+4iLKnzhoID/cct1ur+de5dmQ0QwenPWU51Z0Mp6tgWaFs3UP4nPgUZKakdInfI/Zp+xHiwzWbTWt/94z0b1/MgTSoaLk/m/4bXv2mywcrmnuS3kfUj2xHYPzsnpaacgcx2FxIV1KGnH4hdMty2lijSKNa8ze1chpc42rSHOifapb3cNPmL2U3trXyQobNuI/SAtzrzhOeWJKi3zYeDqRf1N3yCTLBcF4cgwIM6nA545RlpCHYhUFxrbpgS3yxErIdA9OhVMfT8v64btsSC3y51DcydueBYSuLEFqWWl2uU+ZHZlafS6y1TCUjtzQrUITz9mHymSbdFPClbU3H2DlE/U5Se0QqOVt7hUN5Qea/3SPDj2ybtnJeWvLtyQN9CArYQSjrnl5PDMHf+fMFbILMjfn+Ba7/GwVQDUZUBbfyxrPAfWxKKJ6Co02SZTUxa2owbOzz4zFo/wvR1mKXFuR883aZgZ587YX1nc9WyTXdcNIAtRkM08CIT+imCtDJby655tVQO9cwQsfKiZoBX0hvq28UYd5Dk0teNneU9gANYPnnpz2b7EDCgqpI4FQAKoZqjRlFiZu0sqB0pYYgexUbjHJ2nvWgKM4QCrylpsMU5YdAmWmyPtnFehQCexFF3SZZPHIA2VsqCg5Tq0pZ5usO0qgvQgx2r8FU6ed+63VH4pT7KFiimdZSLAs2cZw2Ipu0JcDPXiJgxEFsXwttJ0DitRN8exn4UmLdHaKQQ4UOP8yTDwaTyeOGIjV8VUZnSy5uHgxo4Xv48HPH2K8uwdWwAZoVH2yfw8UZ80wzR+YLQI1jTWlskW3t89opABKHkITlll7QO5tnKdGbrHSsTz14TqZYyAE2/jn8AsXAWWmscgrpCJQhhmXJEDpbH/ZTAV0HuPF6SG81lzcFHD7R0NKRVklvCT+JHvXtliB3d7+5smlI8o0ni/6mgOaXfAeJoXbWTp5dEWSARMVlhyonqU1tjE/DYwt/rNgB4IlhmiCtMgAjBGU69mBFJwP1DSzBComWEhHd3XyysjBgSi+n05+ikXD8cuU0QfKHgvFufUZZirgTj/fzoLLe0DkzwGc9vN1QGfP2TVoFo6OfIdjoEZnhn8xSeK5pY3vbf9XoAbaFy9lZOVQnoUxFxeWzE1ZETe/wlg/AyG5fnKQV/VsoMxp0SzpsK/FRyAOgcLcma9CVBbOOn8HN0v5xyepSFIqA6qTl9jMim0R9LcWoqGY5mZBkslE/JjPkPivWESPk7GfD5S1PLI2RPpW4y2x9kxyQDuYcRAEKGe+6fBlfI3454MQDAlQXafoYDG+EH2kY40LaKiYD/ZDAHLecs6Nl6UYO4Z0GdD+IrtqaD+R/fJRADodorHKjON8HaMuztDwN1ECxWrtyCrIXFVK+qLHWG7JBPcmEEmOwtHxQpfVIQJr5Th/ywVALXSJhdgEH0QKVNQWJu8BPhUfFN/VrUzeYLDUQHVRAwG6w9u+43dh2IIkHwHCKqLYGl8fNAHi/R9xCy9X231nGX2WGbpHvsEOKLb6HGZ376LPRCa6GVDayi6q7lmikYtPdWH2rZQj+hoJZfB190EqHuVPxyMqfH0xSw+MhqzGE8Myw0e9srV1taBArht9UgGlZBKK7J7M3qEoArUyC4gdGKrTzAb9REpGlGQZqg6FLBsN97iyD8zgtVixD+u4o3nJTKHIjtrdjKg0l6bmHC1RRyNK6DbLMt9e0SwAhSnScfCeZ7CJ7ViZkcuYi6IiBwo/PIg5Bh7Snno4CUywUXL5HrMcRCw8KHubRS54vjhOqePNS4CCbssSUNi/aMa8CJTSqY2WOddEQA3M+54wUGNRi005ol9EsrmjAMWmcFM0PbYoYeXJ3NIB2S1iYxQHFueTEVwO1Ep5lrlpm75LBpQ8hj6IeLak6TBpMQLC30SpTzlQnUwjnBPGoYahG6PB/jgGipUuxZD6yfbjaSZodv4q8A6oISFbOUcFfRYWJTMxV6oMaDYUQwHn3sIQrMiry6IsAY0K6FeMDfhbcc8+pMkmUJYcryRWwkXGY/dZtAIy84IyxOxCGutthIE/zefzzjHN20dVQXJA4b3fRdwHfIwU31wKFIUVP33CoeiL7t9WI1eIrkhoafLFYVEHcJ7HYqRy5aAB2CRL0NDK0uha1BTusp3mPf7d8lJ967swooQ82eITze/rCqA0C8FqESrBT+KfYd8qA/qIJjArFLjuc1NgOLY+6LbupLuJtWDMTVgrRW88W15Ql8OcOiSS85nzI0owgZ8YUQYOtkJ0sewI5qPn8C30pbkJxnkZUG8hNL4xHhzTvy3hEsWf83ZgR6gjR7CzaBt/8rE2Tu6xXXBMYhnld2kKI4oWkp/x/yDWg3RE0UAX4/iOn3PTWWw3ZWRA9c2CYRajkgKPCctG7rVWYv6gR6dvym2abFZ09y8xAQ+14WiTjix6lo+opW+WAKb9K14i3KXCkgPNyqgVUo2zzE3PbKrDwbLoTHzufEegIhbF3LviVt5VQDHr3ECMgM/s1b1UdHUxb8SCiwYL7+wSekuAolG3iVlLSPjrRvt4Q9Aidy7GuTmDqZ/ZXZoviYFeBVRk2fjHFt3v8NcQGRbmKFYZ2KW0ZAflVCRAKXmCR9X1HvBX4UPOlBIRfSbU11iUMwB7pGaggrxFlnPCWRhyoJaVBttsI+7HXu4eCo73LtgzzPYJcjQUI20cx6pgMg6yL/kkEdEbze5LNgiuBgoKaZvMyZQDhUdehpvdokWyl7viiOpZsmTTfryX0Sob6ah/7GeSvpGpo94dOug+l9bAvR6oRUBmd6qjuLwgeS18wtSiw4zoADQfBczmGJfNMaQJIjLjgtWzzJCuW8LRD6VFA64XXawM0dW2KUXlQDP7SOPtwzVLEjMaZLEBVeW9NNNUTt64SUXrvpBs05CXrKoBqI7RZoeXAUX3zBS+69bNsravdwCUJpkzb/yUb8IJJw+guo/Ha7xOnrJFNlMDufXnZKD6NqapHFHL8lpio0QJVLemoePEBzWOLbSkzCPRpRjYRqNIVX5Up70YDU5jkd8X7u2Tr3FFMbuNCaiFowcF0SqgSH1j47zLgcIwPn9aLg9KJMqAgvWHvRU8qLex34RrmC9QqtPFDmioyIq3NQEdtxhLwXBKGN1b1UCxpl2WmksxRzdbansfSwJUWH+wfKxVJ5Qwdb7YnuCz3C/Ic7ZbamLAQy73W9FVZqY1dnlzSoBCX7+4QvUqgEq6pghU1D+VbOMfkJcZgmF+0zLZvL7p5JN454EqiHF+yogifbFLRvQUoJuQXnnByHehl4/3hXHFGtjZLnugznNYDlQ7GSjNwjoAdCGiE9LtvCOgkcMNY1fij3Rsg3PulmaepP1QM7hzePwpo34Xv2zEc6I8sNY2DOWBKvgq3xmnAFQ8KQeqk6nhcAcPVP3xF1J5TS4A2m+J57ZhSdoWP86SsqxBFvn4gU+1Cmca/lt8u1Vy5Cf7ppJ+/NxqEIt2xCcdRZfpr+LX7/8DgSP91FsGjkUAAAAASUVORK5CYII=" alt="Article 3">
+        <div class="article-content">
+          <h4>Meet Maven: Our programs, care model, and how we partner with you</h4>
+          <span class="tag">Insights</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="subscribe-section">
+    <div class="socials">
+      <h2>Stay in the loop</h2>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="subscribe-form">
+      <h2>Subscribe for the latest content</h2>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <input type="email" placeholder="Enter your email*">
+        <button><i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-grid">
+    <div class="card">
+      <img src="https://images.stockcake.com/public/a/e/8/ae861fc3-ddf1-4cef-bb45-424d953d82f0_large/businesswoman-leading-meeting-stockcake.jpg" alt="Card 1">
+      <div class="card-content">
+        <span class="tag">Insights</span>
+        <h3>Business case for family health benefits: How to win over your CFO with ROI</h3>
+        <p>Here's how to present the right metrics, anticipate objections, and show long-term value of family benefits for business success.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://houmanmd.com/wp-content/uploads/2023/05/increase-male-fertility.jpg" alt="Card 2">
+      <div class="card-content">
+        <span class="tag">Insights</span>
+        <h3>Male fertility: The talk no one is having, until now</h3>
+        <p>Survey findings on men's fertility, testing, lifestyle changes, and the growing role of digital health in supporting fertility needs.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2407247.jpg" alt="Card 3">
+      <div class="card-content">
+        <span class="tag">Insights</span>
+        <h3>How to evaluate fertility benefits vendors: A strategic framework for HR leaders</h3>
+        <p>Strategic tips from HR leaders on choosing benefits partners that align with employee needs and business goals.</p>
+      </div>
+    </div>
+  </section>
+  <style>
+    .news-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .news-section h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .news-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .news-card {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transition: transform 0.3s ease;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .news-image-box {
+      width: 100%;
+      height: 210px;
+      background: #e6e6e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .news-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-content {
+      padding: 20px 18px 24px 18px;
+      text-align: left;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #d6f4e3;
+      color: #00754a;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 5px;
+      margin-bottom: 12px;
+    }
+
+    .news-card h2 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+
+    .news-card p {
+      font-size: 15px;
+      color: #444;
+      margin: 0;
+    }
+
+    .button-container {
+      margin-top: 40px;
+    }
+
+    .see-more-btn {
+      display: inline-block;
+      text-decoration: none;
+      border: 1.5px solid #00754a;
+      padding: 10px 24px;
+      color: #00754a;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .see-more-btn:hover {
+      background-color: #00754a;
+      color: white;
+    }
+
+    @media (max-width: 1000px) {
+      .news-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .news-card {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  </style>
+  <section class="news-section">
+    <h1>Maven in the news</h1>
+    <div class="news-grid">
+
+      <!-- Card 1 -->
+      <div class="news-card">
+        <div class="news-image-box">
+          <img src="https://media.istockphoto.com/id/177747958/photo/nurse-with-concerned-look-meeting-with-girl-and-mother.jpg?s=612x612&w=0&k=20&c=L6zDIeeoJS6PifA3HW_ZgCaYsT8un7lfrxZosfODV2E=" alt="Couple booking appointment" />
+        </div>
+        <div class="news-content">
+          <span class="badge">News</span>
+          <h2>Maven: A ten-year roadmap in women’s and family health</h2>
+          <p>Maven notches a decade of category leadership in women's and family health innovation, while charting the next decade to come.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="news-card">
+        <div class="news-image-box">
+          <img src="https://thumbs.dreamstime.com/b/smiling-young-family-two-children-sitting-car-driving-relaxing-road-trip-looking-camera-portrait-142682844.jpg" alt="Mpact for Families group" />
+        </div>
+        <div class="news-content">
+          <span class="badge">News</span>
+          <h2>Press release: Maven Clinic and March for Moms welcomes 2025 MPact for Families fellows driving change in their communities</h2>
+          <p>Meet the 2025 MPact for Families Fellows, Ttáwaxt Birth Justice Center and the Iowa Black Doula Collective.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="news-card">
+        <div class="news-image-box">
+          <img src="https://a.storyblok.com/f/290132/2147x1672/757ba1ef39/baby-parents-4-3-cropped.jpg/m/4000x0/filters:no_upscale()" alt="Couple with sonogram image" />
+        </div>
+        <div class="news-content">
+          <span class="badge">News</span>
+          <h2>Maven Clinic expands award-winning Fertility & Family Building solution with focus on natural conception</h2>
+          <p>With 86% of women not getting preconception care from their family physician or OB-GYN, Maven launches coaching program to expand family-building options for couples struggling to conceive.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="button-container">
+      <a href="#" class="see-more-btn">See more Maven in the News</a>
+    </div>
+  </section>
+  <style>
+    .maven-section {
+      max-width: 1200px;
+      margin: 70px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .maven-section h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 48px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 48px;
+      flex-wrap: nowrap;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      flex: 1 1 480px;
+      max-width: 520px;
+      min-width: 380px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e9f3f0 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09), 0 1.5px 6px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+      border: 1.5px solid #e2e8f0;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.025);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.04);
+      border-color: #b7e4d8;
+    }
+
+    .card-title {
+      font-size: 26px;
+      font-weight: 700;
+      padding: 32px 0 14px 0;
+      text-align: center;
+      background: transparent;
+      margin-bottom: 0;
+      letter-spacing: 0.5px;
+    }
+
+    .card-img-box {
+      width: 100%;
+      height: 320px;
+      background: #fff;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .card:hover .card-img {
+      transform: scale(1.04);
+    }
+
+    /* Card colors */
+    .card.employers {
+      background: linear-gradient(135deg, #e6f5ef 0%, #deebe6 100%);
+      border-color: #b7e4d8;
+    }
+
+    .card.health {
+      background: linear-gradient(135deg, #e7f0fd 0%, #dbe6fb 100%);
+      border-color: #b6c8f2;
+    }
+
+    .card.consultants {
+      background: linear-gradient(135deg, #fbe7ea 0%, #fcdde1 100%);
+      border-color: #f3bfc7;
+    }
+
+    .employers .card-title {
+      color: #00754a;
+    }
+
+    .health .card-title {
+      color: #5b76d6;
+    }
+
+    .consultants .card-title {
+      color: #b13e42;
+    }
+
+    @media (max-width: 1400px) {
+      .cards {
+      gap: 32px;
+      }
+      .card {
+      max-width: 420px;
+      min-width: 320px;
+      }
+      .card-img-box {
+      height: 240px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .cards {
+      gap: 20px;
+      }
+      .card {
+      max-width: 340px;
+      min-width: 220px;
+      }
+      .card-img-box {
+      height: 180px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      }
+      .card {
+      width: 95vw;
+      max-width: 520px;
+      min-width: unset;
+      }
+      .card-img-box {
+      height: 220px;
+      }
+    }
+    </style>
+    <section class="maven-section">
+      <h1>Curious what Maven can do for you?</h1>
+      <div class="cards">
+
+        <div class="card employers">
+          <div class="card-img-box" style="position:relative;">
+        <img src="https://thumbs.dreamstime.com/b/boss-showing-thumb-up-monitor-screen-to-employee-cartoon-business-idea-concept-47222447.jpg" class="card-img" alt="Employers">
+        <div class="card-title-overlay">
+          <span>Employers</span>
+        </div>
+          </div>
+        </div>
+
+        <div class="card health">
+          <div class="card-img-box" style="position:relative;">
+        <img src="https://png.pngtree.com/png-clipart/20230926/original/pngtree-health-insurance-under-umbrella-with-document-in-cartoon-style-vector-png-image_12880280.png" class="card-img" alt="Health Plans">
+        <div class="card-title-overlay">
+          <span>Health Plans</span>
+        </div>
+          </div>
+        </div>
+
+        <div class="card consultants">
+          <div class="card-img-box" style="position:relative;">
+        <img src="https://www.shutterstock.com/shutterstock/photos/1771931333/display_1500/stock-vector--young-woman-operator-consultant-cartoon-character-with-headset-talking-with-senior-citizen-old-1771931333.jpg" class="card-img" alt="Consultants">
+        <div class="card-title-overlay">
+          <span>Consultants</span>
+        </div>
+          </div>
+        </div>
+
+      </div>
+      <style>
+        .card-img-box {
+          position: relative;
+        }
+        .card-title-overlay {
+          position: absolute;
+          left: 50%;
+          bottom: 24px;
+          transform: translateX(-50%);
+          background: rgba(255,255,255,0.92);
+          border-radius: 16px;
+          padding: 14px 36px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 180px;
+        }
+        .card-title-overlay span {
+          font-size: 26px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+        }
+        .card.employers .card-title-overlay span {
+          color: #00754a;
+        }
+        .card.health .card-title-overlay span {
+          color: #5b76d6;
+        }
+        .card.consultants .card-title-overlay span {
+          color: #b13e42;
+        }
+        @media (max-width: 900px) {
+          .card-title-overlay {
+        padding: 10px 18px;
+        min-width: 120px;
+        font-size: 18px;
+          }
+        }
+      </style>
+    </section>
+</body>
+</html>
