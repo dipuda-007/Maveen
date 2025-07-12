@@ -213,7 +213,8 @@ cursor: pointer;
   color: #1a3c34;
   font-weight: 500;
   margin-bottom: 50px;
-  line-height: 1.5;
+  line-height: 1.5; 
+
 }
 .clients-logos {
   display: flex;
