@@ -1,9 +1,9 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maven Blog</title>
+  <title>Maven Clinic - The next generation of care</title>
   <style>
     body {
       margin: 0;
@@ -11,67 +11,18 @@
       background-color: #f9f9f9;
       color: #2d2d2d;
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding: 0;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #2d2d2d;
-      font-weight: 500;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .cta-buttons button {
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1px solid #00725c;
-      background-color: #fff;
-      color: #00725c;
-    }
-
-    .cta-buttons button:last-child {
-      background-color: #00725c;
-      color: white;
-    }
-
     .main {
       display: flex;
       max-width: 1200px;
       margin: 40px auto;
       gap: 40px;
-      padding: 0 20px;
+      /*padding: 0 100px;*/padding-top: 50px;padding-bottom: 50px;
     }
 
     .featured {
       background-color: #00725c;
       color: white;
-      padding: 40px;
+      padding: 100px;
       border-radius: 8px;
       flex: 2;
       position: relative;
@@ -102,7 +53,7 @@
     }
 
     .articles {
-      flex: 1.5;
+      flex: 1.5; padding: 100px;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -129,7 +80,7 @@
     .tag {
       margin-top: 8px;
       display: inline-block;
-      padding: 4px 10px;
+      padding: 4px 20px;
       background-color: #e0f2eb;
       color: #00725c;
       border-radius: 4px;
@@ -233,29 +184,33 @@
       color: #555;
     }
   </style>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="stylesheet" href="page.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://via.placeholder.com/30x30" alt="Logo">
-      <strong>MAVEN</strong>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Why Maven</a></li>
-        <li><a href="#">Employers</a></li>
-        <li><a href="#">Health Plans</a></li>
-        <li><a href="#">Consultants</a></li>
-        <li><a href="#">Individuals</a></li>
-        <li><a href="#">Resources</a></li>
-      </ul>
-    </nav>
-    <div class="cta-buttons">
-      <button>Login</button>
-      <button>Book a demo</button>
-    </div>
-  </header>
+     <nav class="navbar" >
+          <a href="index.html">
+        <img src="image2.png" alt="image" class="pic" > </a>
+        <ul class="navbar-links">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="abt.html">Why maven</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="HealthPlans.html">Health plans</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Resources</a>
+        </li>
+       </ul>
+    
+    <div class="navbar-buttons">
+        <button class="btn-outline">Login</button>
+        <button class="btn-filled">Book a demo</button>
+</nav>
+
 
   <main class="main">
     <section class="featured">
